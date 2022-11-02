@@ -1,0 +1,5 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.project.sourcePaths": [],
+    "cmake.sourceDirectory": "${workspaceFolder}/windows"
+}
