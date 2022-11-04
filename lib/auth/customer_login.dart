@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:multi_store_app/widgets/auth_widgets.dart';
 import 'package:multi_store_app/widgets/snackbar.dart';
@@ -47,10 +46,10 @@ class _CustomerLoginState extends State<CustomerLogin> {
         .signInWithCredential(credential)
         .whenComplete(() async {
       User user = FirebaseAuth.instance.currentUser!;
-      print(googleUser!.id);
-      print(FirebaseAuth.instance.currentUser!.uid);
-      print(googleUser);
-      print(user);
+      // print(googleUser!.id);
+      // print(FirebaseAuth.instance.currentUser!.uid);
+      // print(googleUser);
+      // print(user);
 
       docExists = await checkIfDocExists(user.uid);
 
@@ -221,7 +220,7 @@ class _CustomerLoginState extends State<CustomerLogin> {
                         },
                       ),
                       divider(),
-                      googleLogInButton(),
+                      // googleLogInButton(),
                     ],
                   ),
                 ),
@@ -262,31 +261,31 @@ class _CustomerLoginState extends State<CustomerLogin> {
     );
   }
 
-  Widget googleLogInButton() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(50, 50, 50, 20),
-      child: Material(
-        elevation: 3,
-        color: Colors.grey.shade300,
-        borderRadius: BorderRadius.circular(6),
-        child: MaterialButton(
-          onPressed: () {
-            signInWithGoogle();
-          },
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Icon(
-                  FontAwesomeIcons.google,
-                  color: Colors.red,
-                ),
-                Text(
-                  'Sign In With Google',
-                  style: TextStyle(color: Colors.red, fontSize: 16),
-                )
-              ]),
-        ),
-      ),
-    );
-  }
+  // Widget googleLogInButton() {
+  //   return Padding(
+  //     padding: const EdgeInsets.fromLTRB(50, 50, 50, 20),
+  //     child: Material(
+  //       elevation: 3,
+  //       color: Colors.grey.shade300,
+  //       borderRadius: BorderRadius.circular(6),
+  //       child: MaterialButton(
+  //         onPressed: () {
+  //           signInWithGoogle();
+  //         },
+  //         child: Row(
+  //             mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //             children: const [
+  //               Icon(
+  //                 FontAwesomeIcons.google,
+  //                 color: Colors.red,
+  //               ),
+  //               Text(
+  //                 'Sign In With Google',
+  //                 style: TextStyle(color: Colors.red, fontSize: 16),
+  //               )
+  //             ]),
+  //       ),
+  //     ),
+  //   );
+  // }
 }

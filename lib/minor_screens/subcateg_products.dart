@@ -2,15 +2,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
-
 import '../models/product_model.dart';
 import '../widgets/appbar_widgets.dart';
 
 class SubCategProducts extends StatefulWidget {
   final String maincategName;
   final String subcategName;
+  final bool fromOnBoarding;
   const SubCategProducts(
-      {Key? key, required this.subcategName, required this.maincategName})
+      {Key? key,
+      required this.subcategName,
+      required this.maincategName,
+      this.fromOnBoarding = false})
       : super(key: key);
 
   @override
@@ -30,7 +33,9 @@ class _SubCategProductsState extends State<SubCategProducts> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: const AppBarBackButton(),
+        leading: widget.fromOnBoarding == true? IconButton(onPressed: (){
+          Navigator.pushReplacementNamed(context, '/customer_home');
+        }, icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black,)): const AppBarBackButton(),
         title: AppBarTitle(title: widget.subcategName),
       ),
       body: StreamBuilder<QuerySnapshot>(

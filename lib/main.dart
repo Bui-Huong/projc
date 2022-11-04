@@ -13,6 +13,8 @@ import 'package:provider/provider.dart';
 import 'main_screens/customer_home.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
+import 'main_screens/onboarding_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Stripe.publishableKey = stripePublishableKey;
@@ -37,9 +39,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/welcome_screen',
+      initialRoute: '/onboarding_screen',
       routes: {
         '/welcome_screen': (context) => const WelcomeScreen(),
+        '/onboarding_screen': (context) => const Onboardingscreen(),
         '/customer_home': (context) => const CustomerHomeScreen(),
         '/supplier_home': (context) => const SupplierHomeScreen(),
         '/customer_signup': (context) => const CustomerRegister(),
